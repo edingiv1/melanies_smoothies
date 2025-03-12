@@ -2,6 +2,8 @@
 import streamlit as st
 # from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
+import requests
+
 
 helpful_links = [
     "https://docs.streamlit.io",
@@ -15,6 +17,9 @@ st.title(":cup_with_straw: Cutomise Your Smoothie!:cup_with_straw:")
 st.write(
     f"""Choose the fruits you want in your smoothie!"""
 )
+
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
 
 name_on_order = st.text_input("Your Name")
 st.write("The name on your smoothie will be:", name_on_order)
