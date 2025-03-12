@@ -18,9 +18,6 @@ st.write(
     f"""Choose the fruits you want in your smoothie!"""
 )
 
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response)
-
 name_on_order = st.text_input("Your Name")
 st.write("The name on your smoothie will be:", name_on_order)
 
@@ -35,6 +32,9 @@ ingredients_list = st.multiselect(
     my_dataframe,
     max_selections=5
 )
+
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response.josn)
 
 if ingredients_list: # if not null 
     ingredients_string = ''
